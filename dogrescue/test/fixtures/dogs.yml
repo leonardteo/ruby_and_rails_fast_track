@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  breed: MyString
+  age: 9.99
+  description: MyText
+  available: 
+
+two:
+  name: MyString
+  breed: MyString
+  age: 9.99
+  description: MyText
+  available: 

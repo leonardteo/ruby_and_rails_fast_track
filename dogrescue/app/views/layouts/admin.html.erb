@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dog Rescue Admin</title>
+  <%= stylesheet_link_tag    "admin", :media => "all" %>
+  <%= javascript_include_tag "admin" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+  <% if @login_user %>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/admin">Dog Rescue Admin</a>
+        <div class="container">
+          <ul class="nav">
+            <li><a href="/admin/dogs">Dogs</a></li>
+            <li><a href="/admin/users">Users</a></li>
+          </ul>
+          <ul class="nav pull-right">
+            <li><a href="/admin/logout">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <div style="height: 60px;"></div>
+
+
+  <div class="container">
+
+    <% if flash[:notice] %>
+    <div class="alert alert-info">
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
+
+    
+    <%= yield %>
+    
+  </div>
+
+</body>
+</html>

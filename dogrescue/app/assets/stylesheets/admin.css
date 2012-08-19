@@ -1,0 +1,6 @@
+/*
+ * Admin manifest
+ *
+ *= require bootstrap
+ *= require_directory ./admin
+ */
