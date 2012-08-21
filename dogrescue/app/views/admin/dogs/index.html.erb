@@ -2,32 +2,37 @@
 
 <div style="height: 10px;"></div>
 
-<%= link_to 'New Dog', new_admin_dog_path, :class => "btn" %>
+<a href="/admin/dogs/new" class="btn"><i class="icon icon-file"></i> New Dog</a>
 
 <div style="height: 10px;"></div>
 
-<table class="table table-bordered table-striped">
-  <tr>
-    <th>Thumbnail</th>
-    <th>Name</th>
-    <th>Breed</th>
-    <th>Age</th>
-    <th>Description</th>
-    <th>Available</th>
-    <th>Actions</th>
-  </tr>
+<table class="table table-bordered table-striped datatable">
 
-<% @dogs.each do |dog| %>
-  <tr>
-    <td><img src="/data/dogs/<%= dog.thumbnail %>" style="width:100px;" /></td>
-    <td><%= dog.name %></td>
-    <td><%= dog.breed %></td>
-    <td><%= dog.age %></td>
-    <td><%= dog.description %></td>
-    <td><%= dog.available %></td>
-    <td><%= link_to 'Show', admin_dog_path(dog), :class => "btn btn-mini" %> <%= link_to 'Edit', edit_admin_dog_path(dog), :class => "btn btn-mini" %> <%= link_to 'Destroy', admin_dog_path(dog), confirm: 'Are you sure?', method: :delete, :class => "btn btn-mini" %></td>
-  </tr>
-<% end %>
+  <thead>
+    <tr>
+      <th>Thumbnail</th>
+      <th>Name</th>
+      <th>Breed</th>
+      <th>Age</th>
+      <th>Description</th>
+      <th>Available</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @dogs.each do |dog| %>
+    <tr>
+      <td><img src="/data/dogs/<%= dog.thumbnail %>" style="width:100px;" /></td>
+      <td><%= dog.name %></td>
+      <td><%= dog.breed %></td>
+      <td><%= dog.age %></td>
+      <td><%= dog.description %></td>
+      <td><%= dog.available %></td>
+      <td><%= link_to 'Show', admin_dog_path(dog), :class => "btn btn-mini" %> <%= link_to 'Edit', edit_admin_dog_path(dog), :class => "btn btn-mini" %> <%= link_to 'Destroy', admin_dog_path(dog), confirm: 'Are you sure?', method: :delete, :class => "btn btn-mini" %></td>
+    </tr>
+  <% end %>
+  </tbody>
 </table>
 
 
