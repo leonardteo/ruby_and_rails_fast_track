@@ -24,13 +24,31 @@
     <%= f.text_field :age %>
   </div>
   <div class="field">
+    <%= f.label :gender %>
+    <%= f.select(:gender, [ ['Male', 'M'], ['Female', 'F'] ]) %>
+  </div>
+  <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :available %>
-    <%= f.text_field :available %>
+    <label class="checkbox">
+      <%= f.check_box :available %> Available  
+    </label>
   </div>
+
+  <% if @dog.thumbnail %>
+  <p>
+    <b>Thumbnail:</b><br />
+    <img src="/data/dogs/<%= @dog.thumbnail %>" />
+  </p>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :thumbnail %>
+    <%= f.file_field :thumbnail %>
+  </div>
+
   <div class="actions">
     <%= f.submit 'Submit',  :class => "btn" %>
   </div>

@@ -1,5 +1,7 @@
 Dogrescue::Application.routes.draw do
 
+  get "admin" => "admin/dogs#index"
+
   namespace :admin do
     get "login" => "auth#login"
     post "login" => "auth#login"

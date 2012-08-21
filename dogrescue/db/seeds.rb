@@ -19,7 +19,9 @@ Dog.create({
   breed: "Westie Cross",
   age: 10,
   description: "Test Description",
-  available: true
+  available: true,
+  gender: "M",
+  thumbnail: "katou.jpg"
 })
 
 Dog.create({
@@ -27,5 +29,7 @@ Dog.create({
   breed: "Shih Tzu Cross",
   age: 5,
   description: "Test Description",
-  available: true
+  available: true,
+  gender: "M",
+  thumbnail: "dustin.jpg"
 })

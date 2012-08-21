@@ -45,6 +45,11 @@ class Admin::DogsController < ApplicationController
   # POST /dogs
   # POST /dogs.json
   def create
+    
+    if params[:dog][:thumbnail]
+      params[:dog][:thumbnail] = upload_thumbnail(params[:dog][:thumbnail])
+    end
+
     @dog = Dog.new(params[:dog])
 
     respond_to do |format|
@@ -62,6 +67,10 @@ class Admin::DogsController < ApplicationController
   # PUT /dogs/1.json
   def update
     @dog = Dog.find(params[:id])
+
+    if params[:dog][:thumbnail]
+      params[:dog][:thumbnail] = upload_thumbnail(params[:dog][:thumbnail])
+    end
 
     respond_to do |format|
       if @dog.update_attributes(params[:dog])
@@ -85,4 +94,14 @@ class Admin::DogsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # Upload thumbnail
+  def upload_thumbnail(upload_io)
+    path_to_file = "#{Rails.root}/public/data/dogs/#{upload_io.original_filename}"
+    File.open(path_to_file, 'wb') do |file|
+      file.write(upload_io.read)
+    end
+    upload_io.original_filename
+  end
+
 end
