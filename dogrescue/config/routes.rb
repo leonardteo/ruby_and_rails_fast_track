@@ -1,5 +1,9 @@
 Dogrescue::Application.routes.draw do
 
+  get "dogs/show/:id" => "dogs#show"
+
+  root :to => "dogs#index"
+
   get "admin" => "admin/dogs#index"
 
   namespace :admin do

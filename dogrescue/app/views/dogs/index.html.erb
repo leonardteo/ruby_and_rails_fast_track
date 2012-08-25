@@ -1,0 +1,23 @@
+<h1>Dogs Needing Homes</h1>
+
+<div style="height: 20px;"></div>
+
+<table>
+	<tbody>
+		<% @dogs.each do |dog| %>
+		<tr>
+			<td>
+				<a href="/dogs/show/<%= dog.id %>"><img src="/data/dogs/<%= dog.thumbnail %>" / style="width: 250px;"></a>
+			</td>
+			<td style="width: 10px;"></td>
+			<td style="vertical-align: top;">
+				<h2><%= dog.name %></h2>
+				<p><%= dog.breed %>, Age: <%= dog.age %></p>
+				<p><%= dog.description %></p>
+
+				<p><a href="/dogs/show/<%= dog.id %>" class="btn">More information / Adopt</a></p>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

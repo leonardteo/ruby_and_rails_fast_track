@@ -1,0 +1,15 @@
+<h1><%= @dog.name %></h1>
+<div style="height: 10px;"></div>
+<p>
+	<img src="/data/dogs/<%= @dog.thumbnail %>" />
+</p>
+<p>
+	<b>Breed:</b> <%= @dog.breed %><br />
+	<b>Age:</b> <%= @dog.age %><br />
+	<b>Available: </b> <% if @dog.available? %>Yes<% else %>No<% end %><br />
+	<b>Here since: </b><%= @dog.created_at %>
+
+	<h2>About <%= @dog.name %></h2>
+	<p><%= @dog.description %>
+</p>
+
