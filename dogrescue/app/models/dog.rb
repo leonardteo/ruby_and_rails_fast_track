@@ -1,6 +1,8 @@
 class Dog < ActiveRecord::Base
   attr_accessible :age, :available, :breed, :description, :name, :gender, :thumbnail
 
+  has_many :enquiries
+
   validates :name, :presence => true
   validates :description, :presence => true
   validates :breed, :presence => true

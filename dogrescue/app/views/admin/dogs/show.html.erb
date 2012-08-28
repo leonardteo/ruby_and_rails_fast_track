@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @dog.name %></h1>
 
 <p>
-  <b>Name:</b>
-  <%= @dog.name %>
+  <img src="/data/dogs/<%= @dog.thumbnail %>" />
 </p>
 
 <p>
@@ -24,6 +23,30 @@
   <b>Available:</b>
   <%= @dog.available %>
 </p>
+
+<h2>Enquiries</h2>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Date</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @dog.enquiries.each do |enquiry| %>
+    <tr>
+      <td><a href="mailto:<%= enquiry.email %>"><%= enquiry.name %></a></td>
+      <td><%= enquiry.phone %></td>
+      <td><%= enquiry.created_at %></td>
+      <td><%= enquiry.body %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
 
 <%= link_to 'Edit', edit_admin_dog_path(@dog) %> |

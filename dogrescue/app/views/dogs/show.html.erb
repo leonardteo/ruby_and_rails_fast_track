@@ -13,3 +13,48 @@
 	<p><%= @dog.description %>
 </p>
 
+<div style="height: 10px"></div>
+
+<h2>Enquire About <%= @dog.name %></h2>
+<div style="height: 10px"></div>
+
+<%= form_for @enquiry, :url => "/dogs/show/#{@dog.id}" do |f| %>
+
+	<% if @enquiry.errors.any? %>
+	  <div class="alert alert-error">
+	    
+	    <p><b><%= pluralize(@enquiry.errors.count, "error") %> prohibited this enquiry from being saved:</b></p>
+
+	    <ul>
+	    <% @enquiry.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+
+	<p>
+		<%= f.label :name, "Your Name" %>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.label :email, "Your Email" %>
+		<%= f.text_field :email %>
+	</p>
+
+	<p>
+		<%= f.label :phone, "Your Phone Number" %>
+		<%= f.text_field :phone %>
+	</p>
+
+	<p>
+		<%= f.label :body, "Your enquiry" %>
+		<%= f.text_area :body, :style => "height: 150px; width: 300px;" %>
+	</p>
+
+	<p>
+		<%= f.submit "Submit", :class => "btn" %>
+	</p>
+
+<% end %>

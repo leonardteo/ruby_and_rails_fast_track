@@ -192,7 +192,7 @@ Dog.create({
   description: lorem_ipsum
 })
 
-Dog.create({
+lakota = Dog.create({
   name: "Lakota",
   breed: "Boston Terrier",
   age: 2,
@@ -201,4 +201,22 @@ Dog.create({
   gender: "F",
   thumbnail: "boston_terrier.jpg",
   description: lorem_ipsum
+})
+
+
+
+Enquiry.create({
+  dog_id: lakota.id,
+  name: "John Doe",
+  email: "test@test.com",
+  phone: "514 900 9000",
+  body: "Hi! I'm interested in Lakota!"
+})
+
+Enquiry.create({
+  dog_id: lakota.id,
+  name: "Jane Doe",
+  email: "test2@test.com",
+  phone: "514 900 9000",
+  body: "Hi! I'm interested in Lakota too!"
 })

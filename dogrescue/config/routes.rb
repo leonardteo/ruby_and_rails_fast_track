@@ -1,6 +1,9 @@
 Dogrescue::Application.routes.draw do
 
+  resources :enquiries
+
   get "dogs/show/:id" => "dogs#show"
+  post "dogs/show/:id" => "dogs#show"
 
   root :to => "dogs#index"
 
@@ -13,6 +16,7 @@ Dogrescue::Application.routes.draw do
 
     resources :dogs
     resources :users
+    resources :enquiries
   end
   
 
